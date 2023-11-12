@@ -1,8 +1,12 @@
 package com.jkmoncayo.desktop;
 
-public class Mouse {
+import java.util.Scanner;
+
+public class Mouse extends InputDevice{
     //Atributes
     private String typeMouse;
+
+    final Scanner mouse = new Scanner(System.in);
 
     //Constructor
     public Mouse(String typeMouse) {
@@ -19,4 +23,9 @@ public class Mouse {
     }
 
 
+    @Override
+    public String enterInformation() {
+        String data_in = mouse.nextLine();
+        return data_in;
+    }
 }

@@ -1,9 +1,13 @@
 package com.jkmoncayo.desktop;
 
-public class Keyboard {
+import java.util.Scanner;
+
+public class Keyboard extends InputDevice{
     //Attributes
     private String partId;
     private String typeKeyboard;
+
+    final Scanner keyboard = new Scanner(System.in);
 
     //Constructor
     public Keyboard(String partId, String typeKeyboard) {
@@ -26,5 +30,11 @@ public class Keyboard {
 
     public void setTypeKeyboard(String typeKeyboard) {
         this.typeKeyboard = typeKeyboard;
+    }
+
+    @Override
+    public String enterInformation() {
+        String data_in = keyboard.nextLine();
+        return data_in;
     }
 }

@@ -18,5 +18,15 @@ public class Main {
 
         computersBuilt++;
         System.out.println("Cantidad de computadores construidos: "+computersBuilt);
+
+        System.out.println("Type info through keyboard:");
+        keyboardGeniusWired.enterInformation();
+        System.out.println("Now enter info through mouse:");
+        mouseGeniusWired.enterInformation();
     }
 }
+
+//(done)Use polymorphism with at least one abstract class.
+//(done)Create and override at least one abstract method.
+//Use protected modifier at least 5 times
+//Override methods from class Object (toString(), hashcode(), equals()) for at least 3 classes from the hierarchy.
