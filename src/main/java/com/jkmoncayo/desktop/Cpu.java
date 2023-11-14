@@ -1,5 +1,7 @@
 package com.jkmoncayo.desktop;
 
+import java.util.Objects;
+
 public class Cpu {
     //Attributes
     private String reference;
@@ -18,5 +20,16 @@ public class Cpu {
         this.reference = reference;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cpu cpu = (Cpu) o;
+        return Objects.equals(reference, cpu.reference);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(reference);
+    }
 }

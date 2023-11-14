@@ -1,6 +1,8 @@
 package com.jkmoncayo.desktop;
 
-public class Monitor {
+import java.util.Objects;
+
+public class Monitor extends OutoutDevice{
     //Attributes
     private String monitorBrand;
     private int size;
@@ -28,4 +30,21 @@ public class Monitor {
         this.size = size;
     }
 
+    @Override
+    protected void exitInformation() {
+        System.out.println("Show info through Monitor "+this.monitorBrand);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Monitor monitor = (Monitor) o;
+        return size == monitor.size && Objects.equals(monitorBrand, monitor.monitorBrand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(monitorBrand, size);
+    }
 }

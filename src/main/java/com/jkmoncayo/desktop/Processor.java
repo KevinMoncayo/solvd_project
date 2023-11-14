@@ -1,5 +1,7 @@
 package com.jkmoncayo.desktop;
 
+import java.util.Objects;
+
 public class Processor {
     //Attributes
     private int cores;
@@ -31,5 +33,18 @@ public class Processor {
     public void setBrandProcessor(String brandProcessor) {
 
         this.brandProcessor = brandProcessor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Processor processor = (Processor) o;
+        return cores == processor.cores && Objects.equals(brandProcessor, processor.brandProcessor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cores, brandProcessor);
     }
 }

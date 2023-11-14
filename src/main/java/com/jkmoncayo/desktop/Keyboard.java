@@ -1,5 +1,6 @@
 package com.jkmoncayo.desktop;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Keyboard extends InputDevice{
@@ -33,8 +34,20 @@ public class Keyboard extends InputDevice{
     }
 
     @Override
-    public String enterInformation() {
+    protected void enterInformation() {
         String data_in = keyboard.nextLine();
-        return data_in;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Keyboard keyboard1 = (Keyboard) o;
+        return Objects.equals(partId, keyboard1.partId) && Objects.equals(typeKeyboard, keyboard1.typeKeyboard) && Objects.equals(keyboard, keyboard1.keyboard);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(partId, typeKeyboard, keyboard);
     }
 }

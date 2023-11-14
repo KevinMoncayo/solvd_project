@@ -1,5 +1,6 @@
 package com.jkmoncayo.desktop;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Mouse extends InputDevice{
@@ -24,8 +25,20 @@ public class Mouse extends InputDevice{
 
 
     @Override
-    public String enterInformation() {
+    protected void enterInformation() {
         String data_in = mouse.nextLine();
-        return data_in;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mouse mouse1 = (Mouse) o;
+        return Objects.equals(typeMouse, mouse1.typeMouse) && Objects.equals(mouse, mouse1.mouse);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(typeMouse, mouse);
     }
 }

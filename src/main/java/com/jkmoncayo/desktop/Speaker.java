@@ -1,6 +1,8 @@
 package com.jkmoncayo.desktop;
 
-public class Speaker {
+import java.util.Objects;
+
+public class Speaker extends OutoutDevice{
     //Attributes
     private String brandSpeaker = "Marshall";
 
@@ -20,5 +22,23 @@ public class Speaker {
     public void setBrandSpeaker(String brandSpeaker) {
 
         this.brandSpeaker = brandSpeaker;
+    }
+
+    @Override
+    protected void exitInformation() {
+        System.out.println("Making sound through "+this.brandSpeaker);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Speaker speaker = (Speaker) o;
+        return Objects.equals(brandSpeaker, speaker.brandSpeaker);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brandSpeaker);
     }
 }
